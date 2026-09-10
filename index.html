@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ignite Pickleball — Los Barriles Bootcamp 2026</title>
 <meta name="description" content="Trip guide for the Ignite Pickleball bootcamp in Los Barriles, Baja California Sur — Oct 25–31, 2026. Schedule, logistics, chefs, and who's coming.">
+<meta name="theme-color" content="#093442">
+<meta name="color-scheme" content="light">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -25,6 +27,12 @@
     --ink-soft: #6a6154;
     --line: #e4dccb;
     --shadow: 0 18px 40px -22px rgba(10, 61, 79, 0.45);
+    --shadow-lift: 0 26px 54px -24px rgba(10, 61, 79, 0.55);
+
+    /* One content column shared by hero, nav and panels so every
+       left edge on the page lines up at every viewport. */
+    --wrap: 1000px;
+    --gutter: clamp(18px, 4vw, 30px);
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -37,6 +45,15 @@
     color: var(--ink);
     line-height: 1.62;
     -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  img, svg { max-width: 100%; }
+
+  :focus-visible {
+    outline: 3px solid var(--marigold);
+    outline-offset: 2px;
+    border-radius: 4px;
   }
 
   h1, h2, h3, .display {
@@ -55,15 +72,15 @@
       linear-gradient(160deg, var(--sea-950), var(--sea-800) 55%, var(--sea-600));
     color: #fff;
     overflow: hidden;
-    padding: clamp(38px, 7vw, 72px) 20px clamp(30px, 5vw, 52px);
+    padding: clamp(30px, 6vw, 66px) var(--gutter) clamp(38px, 5vw, 58px);
   }
   /* sun */
   .hero::before {
     content: "";
     position: absolute;
-    top: clamp(-40px, -4vw, -20px);
-    right: clamp(-40px, 2vw, 40px);
-    width: clamp(140px, 22vw, 230px);
+    top: clamp(-56px, -5vw, -26px);
+    right: clamp(-34px, 3vw, 56px);
+    width: clamp(130px, 20vw, 220px);
     aspect-ratio: 1;
     border-radius: 50%;
     background: radial-gradient(circle at 40% 40%, #ffd77a, var(--marigold) 62%, transparent 72%);
@@ -75,15 +92,15 @@
     content: "";
     position: absolute;
     left: 0; right: 0; bottom: 0;
-    height: 34px;
+    height: 24px;
     background:
-      radial-gradient(14px 14px at 14px 34px, transparent 12px, var(--sand) 13px) repeat-x;
-    background-size: 28px 34px;
+      radial-gradient(15px 15px at 15px 24px, transparent 13px, var(--sand) 14px) repeat-x;
+    background-size: 30px 24px;
   }
   .hero-inner {
     position: relative;
     z-index: 2;
-    max-width: 960px;
+    max-width: var(--wrap);
     margin: 0 auto;
   }
   .kicker {
@@ -99,9 +116,10 @@
     border-radius: 999px;
   }
   .hero h1 {
-    font-size: clamp(2.5rem, 9vw, 4.6rem);
+    font-size: clamp(2.4rem, 8.4vw, 4.4rem);
     font-weight: 800;
-    margin: 16px 0 4px;
+    margin: 16px 0 6px;
+    text-wrap: balance;
   }
   .hero .sub {
     font-size: clamp(1.05rem, 3.4vw, 1.4rem);
@@ -109,38 +127,42 @@
     color: var(--sea-300);
   }
   .hero .place {
-    margin-top: 6px;
+    margin-top: 8px;
     color: rgba(255,255,255,0.82);
     font-size: 0.98rem;
+    max-width: 46ch;
+    text-wrap: pretty;
   }
 
   .countdown {
     margin-top: 26px;
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: clamp(7px, 1.6vw, 11px);
+    max-width: 430px;
   }
   .cd-cell {
     background: rgba(255,255,255,0.08);
     border: 1px solid rgba(255,255,255,0.16);
     border-radius: 14px;
-    padding: 12px 16px;
-    min-width: 74px;
+    padding: 12px 6px 11px;
+    min-width: 0;
     text-align: center;
     backdrop-filter: blur(4px);
   }
   .cd-num {
     font-family: 'Bricolage Grotesque', sans-serif;
-    font-size: 1.9rem;
+    font-size: clamp(1.5rem, 5.4vw, 1.9rem);
     font-weight: 700;
     line-height: 1;
+    font-variant-numeric: tabular-nums;
   }
   .cd-label {
-    font-size: 0.72rem;
-    letter-spacing: 0.08em;
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
     color: var(--sea-300);
-    margin-top: 5px;
+    margin-top: 6px;
   }
   .cd-arrived {
     margin-top: 26px;
@@ -152,15 +174,29 @@
 
   .glance {
     margin-top: 26px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px 26px;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(10px, 2.5vw, 24px);
     padding-top: 20px;
     border-top: 1px solid rgba(255,255,255,0.15);
-    font-size: 0.95rem;
   }
-  .glance b { font-weight: 700; }
-  .glance span { color: rgba(255,255,255,0.72); }
+  .glance > div { min-width: 0; }
+  .glance b {
+    display: block;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: clamp(1.45rem, 5vw, 1.8rem);
+    font-weight: 700;
+    line-height: 1.05;
+    color: var(--marigold);
+  }
+  .glance span {
+    display: block;
+    margin-top: 3px;
+    color: rgba(255,255,255,0.75);
+    font-size: clamp(0.8rem, 2.4vw, 0.92rem);
+    line-height: 1.35;
+    text-wrap: pretty;
+  }
 
   /* ---------- NAV ---------- */
   nav {
@@ -172,20 +208,32 @@
     border-bottom: 1px solid var(--line);
   }
   .nav-scroll {
-    max-width: 960px;
+    max-width: calc(var(--wrap) + 2 * var(--gutter));
     margin: 0 auto;
     display: flex;
     gap: 6px;
-    padding: 10px 14px;
+    /* pull in by the pill's own inset so pill text sits on the content edge */
+    padding: 8px max(calc(var(--gutter) - 14px), 6px);
     overflow-x: auto;
+    overscroll-behavior-inline: contain;
     scrollbar-width: none;
+  }
+  /* Only fade the edges where the strip can actually scroll. */
+  @media (max-width: 900px) {
+    .nav-scroll {
+      -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 16px, #000 calc(100% - 16px), transparent 100%);
+      mask-image: linear-gradient(90deg, transparent 0, #000 16px, #000 calc(100% - 16px), transparent 100%);
+    }
   }
   .nav-scroll::-webkit-scrollbar { display: none; }
   .tablink {
     flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
     background: transparent;
     border: 1px solid transparent;
-    padding: 8px 15px;
+    padding: 8px 14px;
     border-radius: 999px;
     cursor: pointer;
     font-family: inherit;
@@ -207,35 +255,40 @@
 
   /* ---------- LAYOUT ---------- */
   .container {
-    max-width: 960px;
-    margin: 34px auto;
-    padding: 0 18px 70px;
+    max-width: calc(var(--wrap) + 2 * var(--gutter));
+    margin: 0 auto;
+    padding: clamp(26px, 4vw, 40px) var(--gutter) clamp(34px, 5vw, 56px);
   }
   .panel { display: none; animation: rise 0.35s ease both; }
   .panel.active { display: block; }
+  .panel:focus { outline: none; }
   @keyframes rise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
 
   h2.section-title {
-    font-size: clamp(1.7rem, 5vw, 2.3rem);
+    font-size: clamp(1.65rem, 4.6vw, 2.25rem);
     font-weight: 700;
     color: var(--sea-900);
+    text-wrap: balance;
   }
   h2.section-title .accent { color: var(--marigold-deep); }
   .lead {
-    font-size: 1.08rem;
+    font-size: clamp(1rem, 2.6vw, 1.08rem);
     color: var(--ink-soft);
     max-width: 62ch;
     margin: 10px 0 26px;
+    text-wrap: pretty;
   }
 
   .card {
     background: var(--paper);
     border: 1px solid var(--line);
     border-radius: 16px;
-    padding: 22px 24px;
+    padding: clamp(18px, 3.2vw, 26px);
     box-shadow: var(--shadow);
     margin-bottom: 18px;
   }
+  .card > :last-child { margin-bottom: 0; }
+  .panel > :last-child { margin-bottom: 0; }
   .card h3 {
     color: var(--sea-800);
     font-size: 1.2rem;
@@ -260,7 +313,7 @@
     background: var(--sea-300);
   }
 
-  .kv { display: grid; grid-template-columns: 130px 1fr; gap: 4px 14px; }
+  .kv { display: grid; grid-template-columns: fit-content(200px) 1fr; gap: 6px 18px; }
   .kv dt { font-weight: 700; color: var(--sea-800); }
   .kv dd { color: var(--ink-soft); }
   @media (max-width: 480px) { .kv { grid-template-columns: 1fr; } .kv dd { margin-bottom: 8px; } }
@@ -298,7 +351,7 @@
   .day .tag {
     display: inline-block;
     margin-left: 8px;
-    font-size: 0.72rem;
+    font-size: 0.75rem;
     font-weight: 700;
     letter-spacing: 0.04em;
     padding: 2px 9px;
@@ -314,12 +367,27 @@
   /* ---------- PHOTO SLOTS ---------- */
   .photo-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    grid-template-columns: 1fr;
     gap: 14px;
-    margin: 18px 0 4px;
+    margin: 18px 0 0;
+    align-items: start;
+  }
+  @media (min-width: 540px) {
+    .photo-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    /* an odd photo out fills the row rather than leaving a gap beside it */
+    .photo-grid > :last-child:nth-child(odd) { grid-column: 1 / -1; }
+  }
+  @media (min-width: 900px) {
+    .photo-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .photo-grid > :last-child:nth-child(odd) { grid-column: auto; }
+    /* exactly two photos stay two-up instead of leaving a third track empty */
+    .photo-grid:has(> :nth-child(2):last-child) { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .photo-grid:has(> :only-child) { grid-template-columns: 1fr; }
   }
   .slot {
     aspect-ratio: 4 / 3;
+    width: 100%;
+    max-height: 260px;
     border-radius: 14px;
     background:
       repeating-linear-gradient(135deg, rgba(18,105,127,0.05) 0 12px, rgba(18,105,127,0.09) 12px 24px);
@@ -335,7 +403,13 @@
   }
   .slot svg { opacity: 0.55; }
   .slot .cap { font-weight: 600; font-size: 0.9rem; }
-  .slot.wide { aspect-ratio: 16 / 9; grid-column: 1 / -1; }
+  .slot.wide {
+    aspect-ratio: 16 / 9;
+    max-height: 320px;
+    grid-column: 1 / -1;
+  }
+  /* A lone slot in a card shouldn't span the full content width. */
+  .photo-grid { align-items: start; }
 
   /* ---------- FIESTA (feature dinner) ---------- */
   .fiesta {
@@ -369,30 +443,63 @@
     border-color: var(--sea-800);
   }
 
+  /* Timeline reads better with a little more air between entries on wide screens. */
+  @media (min-width: 700px) {
+    .day { padding-bottom: 26px; }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .card { transition: transform 0.2s ease, box-shadow 0.2s ease; }
+    .card:hover { transform: translateY(-2px); box-shadow: var(--shadow-lift); }
+  }
+
   .contact-card {
-    display: inline-flex;
+    display: flex;
     flex-direction: column;
-    gap: 2px;
+    gap: 3px;
     background: var(--sea-800);
     color: #fff;
-    padding: 16px 22px;
+    padding: 16px 20px;
     border-radius: 14px;
     margin-top: 6px;
+    width: fit-content;
+    max-width: 100%;
   }
-  .contact-card a { color: var(--marigold); font-weight: 700; text-decoration: none; }
+  .contact-card a {
+    color: var(--marigold);
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 1.05rem;
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    overflow-wrap: anywhere;
+  }
+  .contact-card a:hover { text-decoration: underline; }
   .contact-card small { color: var(--sea-300); }
 
   footer {
     text-align: center;
-    padding: 30px 20px 40px;
+    padding: 24px var(--gutter) 34px;
+    margin-top: 8px;
+    border-top: 1px solid var(--line);
     color: var(--ink-soft);
     font-size: 0.88rem;
+    text-wrap: pretty;
   }
   footer .mark { color: var(--marigold-deep); font-weight: 700; }
 
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
     .panel { animation: none; }
+    * { transition-duration: 0.01ms !important; }
+  }
+
+  @media print {
+    nav, .countdown { display: none; }
+    .panel { display: block !important; animation: none; }
+    .card { box-shadow: none; break-inside: avoid; }
+    .slot { display: none; }
   }
 </style>
 </head>
@@ -681,18 +788,51 @@
 
   // ---- Tabs (accessible + hash deep-linking) ----
   const tabs = Array.from(document.querySelectorAll('.tablink'));
+  const navEl = document.querySelector('nav');
+
   function openTab(name, push = true) {
-    document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
-    tabs.forEach(t => t.setAttribute('aria-selected', 'false'));
     const panel = document.getElementById(name);
     const tab = document.getElementById('tab-' + name);
     if (!panel || !tab) return;
+
+    document.querySelectorAll('.panel').forEach(p => {
+      p.classList.remove('active');
+      p.hidden = true;
+    });
+    tabs.forEach(t => {
+      t.setAttribute('aria-selected', 'false');
+      t.tabIndex = -1;
+    });
+
+    panel.hidden = false;
     panel.classList.add('active');
     tab.setAttribute('aria-selected', 'true');
-    tab.scrollIntoView({ block: 'nearest', inline: 'center' });
-    if (push && location.hash !== '#' + name) history.replaceState(null, '', '#' + name);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    tab.tabIndex = 0;
+
+    if (push) {
+      // Keep the active pill in view without dragging the page sideways-only.
+      tab.scrollIntoView({ block: 'nearest', inline: 'center' });
+      if (location.hash !== '#' + name) history.pushState({ tab: name }, '', '#' + name);
+      parkSection();
+    }
   }
+
+  // Park the sticky nav at the top of the viewport so the chosen section
+  // starts immediately below it, instead of landing on a screen of hero.
+  function parkSection(behavior) {
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    window.scrollTo({
+      top: navEl.offsetTop,
+      behavior: behavior || (reduce ? 'auto' : 'smooth')
+    });
+  }
+
+  // Let the browser Back button move between tabs. An empty hash is the
+  // entry the page was first loaded with, which is Home.
+  window.addEventListener('popstate', () => {
+    const name = location.hash.replace('#', '') || 'home';
+    if (document.getElementById(name)) openTab(name, false);
+  });
 
   // Keyboard arrow navigation across tabs
   tabs.forEach((tab, i) => {
@@ -704,15 +844,26 @@
       else if (e.key === 'End') next = tabs[tabs.length - 1];
       if (next) {
         e.preventDefault();
-        next.focus();
         openTab(next.getAttribute('aria-controls'));
+        next.focus();
       }
     });
   });
 
+  // Don't let the browser restore a stale scroll position over our own.
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+
   // Open from URL hash if valid, else default to Home
   const start = location.hash.replace('#', '');
-  openTab(document.getElementById(start) ? start : 'home', false);
+  const deepLink = start && document.getElementById(start) ? start : null;
+  openTab(deepLink || 'home', false);
+
+  if (deepLink) {
+    // Panel ids match the hash, so the browser tries its own anchor jump into
+    // the middle of the section. Override it with the section parked under nav.
+    parkSection('auto');
+    window.addEventListener('load', () => parkSection('auto'), { once: true });
+  }
 
   // ---- Countdown to arrival (local time) ----
   const TARGET = new Date('2026-10-25T00:00:00');
