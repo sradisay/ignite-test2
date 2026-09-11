@@ -122,22 +122,10 @@
     opacity: 0.72;
   }
 
-  .kicker {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-weight: 600;
-    font-size: 0.82rem;
-    letter-spacing: 0.06em;
-    color: var(--sea-950);
-    background: var(--marigold);
-    padding: 6px 14px;
-    border-radius: 999px;
-  }
   .hero h1 {
     font-size: clamp(2.4rem, 8.4vw, 4.4rem);
     font-weight: 800;
-    margin: 16px 0 6px;
+    margin: 0 0 6px;
     text-wrap: balance;
   }
   .hero .sub {
@@ -539,6 +527,37 @@
   .contact-card a:hover { text-decoration: underline; }
   .contact-card small { color: var(--sea-300); }
 
+  /* Two contact cards side by side, stacking on narrow screens. */
+  .contact-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .contact-row .contact-card { flex: 1 1 260px; }
+
+  /* Recommendation lists: a name, a line of detail, and an outbound link. */
+  .rec > li { margin-bottom: 10px; }
+  .rec > li:last-child { margin-bottom: 0; }
+  .rec strong { color: var(--sea-800); }
+  .ext {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    font-size: 0.86rem;
+    font-weight: 600;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+    text-decoration-color: rgba(18, 105, 127, 0.45);
+  }
+  .ext::after { content: " ↗"; font-size: 0.82em; }
+  .ext:hover { text-decoration-color: var(--sea-600); }
+  .card > .note {
+    color: var(--ink-soft);
+    font-size: 0.92rem;
+    margin-bottom: 12px;
+  }
+
   footer {
     text-align: center;
     padding: 24px var(--gutter) 34px;
@@ -571,7 +590,6 @@
     <img class="hero-logo" src="public/ignite_logo_full.png" width="620" height="620"
          fetchpriority="high" decoding="async"
          alt="Ignite! Pickleball Global Excursions logo: a sugar-skull pickleball with crossbones.">
-    <span class="kicker">Ignite Pickleball · World Excursions</span>
     <h1>Los Barriles<br>Bootcamp</h1>
     <p class="sub">October 25–31, 2026</p>
     <p class="place">Casa Afortunada · Los Barriles, Baja California Sur, Mexico</p>
@@ -612,6 +630,8 @@
            alt="Casa Afortunada lit gold at sunset, seen from the sand across its tiled steps and stone wall.">
       <figcaption>Casa Afortunada from the beach</figcaption>
     </figure>
+    
+    <p class="lead"> Get ready for world-class coaching, ocean views, RZR adventures, chef-prepared meals, and a special Día de los Muertos celebration.</p>
 
     <div class="card">
       <h3>Your hosts</h3>
@@ -633,16 +653,17 @@
     <div class="card">
       <h3>Arrival — Sunday, Oct 25</h3>
       <dl class="kv">
-        <dt>Most guests</dt><dd>Southwest WN630 · SNA → SJD</dd>
-        <dt>Ryan, Nicolas &amp; Jenny</dt><dd>Flight details pending</dd>
-        <dt>Transfer</dt><dd>RC Five Star Sedans &amp; Limos — Sprinter van</dd>
+        <dt>Most guests</dt><dd>Southwest Airlines WN630 · SNA → SJD</dd>
+        <dt>Ryan</dt><dd>American Airlines AA2547 · DFW → SJD</dd>
+        <dt>Nicolas &amp; Jenny</dt><dd>Flight details pending</dd>
+        <dt>Transfer</dt><dd>RC Five Star Sedans &amp; Limos · Sprinter van · <a href="https://wa.me/526242054240">WhatsApp +52 624 205 4240</a></dd>
         <dt>Route</dt><dd>SJD airport → Casa Afortunada</dd>
       </dl>
     </div>
 
     <div class="card">
-      <h3>Your wheels — RZRs</h3>
-      <p>Three four-passenger RZR 1000s, provided by Sergio’s ATV, are yours for beach runs, arroyo trails, and getting to and from the courts.</p>
+      <h3>Local transportation — RZRs</h3>
+      <p>Three four-passenger RZR 1000s, provided by Sergio’s ATV — perfect for beach rides, arroyo trails, getting to and from the courts, and embracing the true Baja lifestyle.</p>
       <div class="photo-grid">
         <figure class="shot">
           <img src="public/photo_12_happy_riders.jpeg" width="4284" height="5712" class="focus-lower"
@@ -668,19 +689,27 @@
     <div class="card">
       <h3>Departure — Saturday, Oct 31</h3>
       <dl class="kv">
-        <dt>Transfer</dt><dd>Same RC Five Star Sprinter van</dd>
+        <dt>Transfer</dt><dd>RC Five Star Sprinter van</dd>
         <dt>Route</dt><dd>Casa Afortunada → SJD</dd>
-        <dt>Return flight</dt><dd>Southwest WN631 · SJD → SNA</dd>
+        <dt>Main group</dt><dd>Southwest Airlines WN631 · SJD → SNA</dd>
+        <dt>Ryan</dt><dd>American Airlines AA1385 · SJD → DFW</dd>
         <dt>Note</dt><dd>Brian &amp; Shelly continue on to Cabo San Lucas</dd>
       </dl>
     </div>
 
     <div class="card">
-      <h3>Need the driver?</h3>
-      <div class="contact-card">
-        <span>RC Five Star Sedans &amp; Limos</span>
-        <a href="https://wa.me/526242054240">WhatsApp +52 624 205 4240</a>
-        <small>Airport transfers &amp; local rides</small>
+      <h3>Important contacts</h3>
+      <div class="contact-row">
+        <div class="contact-card">
+          <span>RC Five Star Sedans &amp; Limos</span>
+          <a href="https://wa.me/526242054240">WhatsApp +52 624 205 4240</a>
+          <small>Airport transfers &amp; local rides</small>
+        </div>
+        <div class="contact-card">
+          <span>Nicolas &amp; Jenny Radisay</span>
+          <a href="#guests" onclick="openTab('guests'); return false;">Your hosts</a>
+          <small>Find them for anything you need</small>
+        </div>
       </div>
     </div>
   </section>
@@ -693,11 +722,11 @@
     <div class="timeline">
       <div class="day">
         <div class="date">Sun · Oct 25 <span class="tag">Arrival</span></div>
-        <p class="body">Land at SJD and transfer to Casa Afortunada. <strong>6:00 PM — Welcome Dinner</strong> by Chef Lupi. Baja casual.</p>
+        <p class="body">Arrive SJD and transfer to Casa Afortunada. <strong>6:00 PM — Welcome Dinner</strong> by Chef Lupi. Baja casual attire.</p>
       </div>
       <div class="day">
         <div class="date">Mon · Oct 26 <span class="tag">Bootcamp 1</span></div>
-        <p class="body">8:00–11:00 AM bootcamp at Tres Palapas · 11:00 AM brunch · afternoon free / RZR time · <strong>5:00–7:00 PM social play</strong>. Dinner on your own.</p>
+        <p class="body"><strong>8:00–11:00 AM</strong> Ignite Pickleball bootcamp at Tres Palapas, with coaches Nic and “Baja” Joe · <strong>11:00 AM</strong> hosted brunch at Tres Palapas · afternoon leisure / RZR time · <strong>5:00–7:00 PM social pickleball</strong>. Dinner on your own.</p>
       </div>
       <div class="day">
         <div class="date">Tue · Oct 27 <span class="tag">Bootcamp 2</span></div>
@@ -705,7 +734,7 @@
       </div>
       <div class="day">
         <div class="date">Wed · Oct 28 <span class="tag">Free day</span></div>
-        <p class="body">Excursions, extra pickleball, beach time, or RZR exploring. No meals included — a good day to try a local spot.</p>
+        <p class="body">Optional activities, extra pickleball, beach time, or RZR exploring. No meals included — see <a href="#explore" onclick="openTab('explore'); return false;">Explore</a> for excursion and restaurant ideas.</p>
       </div>
       <div class="day">
         <div class="date">Thu · Oct 29 <span class="tag">Bootcamp 3</span></div>
@@ -713,11 +742,11 @@
       </div>
       <div class="day feature">
         <div class="date">Fri · Oct 30 <span class="tag hot">Bootcamp 4 + Fiesta</span></div>
-        <p class="body">Regular bootcamp schedule, then <strong>6:00 PM — Día de los Muertos Dinner</strong> by Chef Rogelio Granado with live music by Pepon.</p>
+        <p class="body">Regular morning bootcamp, brunch and social play, then <strong>6:00 PM — Día de los Muertos Dinner</strong> by Chef Rogelio Granado with live music by Pepon Music. Día de los Muertos theme attire.</p>
       </div>
       <div class="day">
         <div class="date">Sat · Oct 31 <span class="tag">Departure</span></div>
-        <p class="body">Morning leisure, then transfer to SJD.</p>
+        <p class="body">Morning leisure, then transfer to SJD — or on to Cabo San Lucas for Brian &amp; Shelly.</p>
       </div>
     </div>
   </section>
@@ -745,13 +774,25 @@
         <li><strong>8:00–11:00 AM</strong> — intensive bootcamp</li>
         <li><strong>5:00–7:00 PM</strong> — social play</li>
       </ul>
+      <h3 style="margin-top:16px">Focus areas</h3>
+      <p class="muted">To be confirmed by the coaches.</p>
     </div>
   </section>
 
   <!-- THE HOUSE -->
   <section id="stay" class="panel" role="tabpanel" aria-labelledby="tab-stay" tabindex="0">
     <h2 class="section-title">Casa Afortunada</h2>
-    <p class="lead">A private beachside home in Los Barriles — ocean views, pool, hot tub, and the sand right out front.</p>
+    <p class="lead">A private beachside residence in Los Barriles — ocean views, pool, hot tub, and the sand right out front.</p>
+
+    <div class="card">
+      <h3>The residence</h3>
+      <ul class="clean">
+        <li>Ocean views</li>
+        <li>Comfortable living spaces for the full group</li>
+        <li>Easy access to the beach and RZR adventures</li>
+      </ul>
+    </div>
+
     <div class="photo-grid">
       <figure class="shot">
         <img src="public/photo_8_from_the_beach.jpeg" width="720" height="487"
@@ -822,7 +863,7 @@
 
     <div class="card">
       <h3>Daily Brunch — bootcamp days</h3>
-      <p class="muted">Mexican style, provided at Tres Palapas after the morning session.</p>
+      <p class="muted">Mexican style, provided by Tres Palapas after the morning session.</p>
       <div class="photo-grid">
         <figure class="shot">
           <img src="public/tres_tacos.jpeg" width="430" height="465"
@@ -836,9 +877,9 @@
     <div class="card fiesta">
       <h3>Día de los Muertos Dinner — Fri, Oct 30 · 6:00 PM</h3>
       <div class="badge-row">
-        <span class="badge">Chef Rogelio Granado</span>
+        <span class="badge">Chef Rogelio Granado — local legend</span>
         <span class="badge">Día de los Muertos attire</span>
-        <span class="badge">Live music: Pepon</span>
+        <span class="badge">Live music: Pepon Music</span>
       </div>
       <p class="muted">A five-course evening: appetizers, salad, Sonoran-style beef <em>or</em> catch of the day, sides, and dessert. Pepon plays classic rock, reggae, blues, and 80s-to-now.</p>
       <div class="photo-grid">
@@ -849,18 +890,23 @@
           <figcaption>Chef Rogelio &amp; crew</figcaption>
         </figure>
         <figure class="shot">
-          <img src="public/pepon_live.jpeg" width="723" height="966" class="focus-upper"
-               loading="lazy" decoding="async"
-               alt="Pepon singing and playing guitar behind a keyboard rig under stage lights.">
-          <figcaption>Pepon, live</figcaption>
-        </figure>
-        <figure class="shot">
           <img src="public/photo_4_plated_creation.jpeg" width="1280" height="1599"
                loading="lazy" decoding="async"
                alt="A plated fried fish taco topped with slaw, pico de gallo and arugula on a blue ceramic plate.">
           <figcaption>Plated creation</figcaption>
         </figure>
+        <figure class="shot">
+          <img src="public/pepon_live.jpeg" width="723" height="966" class="focus-upper"
+               loading="lazy" decoding="async"
+               alt="Pepon singing and playing guitar behind a keyboard rig under stage lights.">
+          <figcaption>Pepon, live</figcaption>
+        </figure>
       </div>
+    </div>
+
+    <div class="card">
+      <h3>Other dinners — Mon, Tue &amp; Thu</h3>
+      <p class="muted">On your own. Restaurant recommendations are on the <a href="#explore" onclick="openTab('explore'); return false;">Explore</a> page.</p>
     </div>
   </section>
 
@@ -868,14 +914,60 @@
   <section id="explore" class="panel" role="tabpanel" aria-labelledby="tab-explore" tabindex="0">
     <h2 class="section-title">Explore Los Barriles</h2>
     <p class="lead">Wednesday is wide open, and afternoons are yours. A few ways to fill them:</p>
+
     <div class="card">
       <ul class="clean">
         <li>RZR beach &amp; arroyo rides</li>
-        <li>Optional Wednesday excursions</li>
-        <li>Extra pickleball at Tres Palapas</li>
-        <li>Beach time &amp; swimming</li>
-        <li>Local restaurants in town</li>
+        <li>Optional Wednesday activities — fishing, Cabo Pulmo, extra pickleball at Las Palmas</li>
+        <li>Recommended restaurants for free nights</li>
+        <li>Beach time &amp; local exploring</li>
       </ul>
+    </div>
+
+    <div class="card">
+      <h3>Wednesday, Oct 28 — optional excursion / free day</h3>
+      <p class="muted">No meals or activities included — a flex day for relaxation or adventure. Some may opt for extra pickleball.</p>
+      <h3 style="margin-top:16px">Pickleball alternative</h3>
+      <p class="muted">Play at Las Palmas / Palmas Pickleball Resort — a larger facility, public welcome — or other local spots such as the Tony Krause Training Center.</p>
+      <a class="ext" href="https://palmaspickleballresort.com" target="_blank" rel="noopener">palmaspickleballresort.com</a>
+    </div>
+
+    <div class="card">
+      <h3>Recommended excursions</h3>
+      <p class="note">Book independently — arrange through your hosts, a local operator, or directly.</p>
+      <ul class="clean rec">
+        <li>
+          <strong>ATV &amp; off-road adventure</strong> — explore arroyos, hidden beaches and palm oases on your own quads or with a guided tour. Operators such as Sergio’s ATV, Can-Doo and Quadman Baja offer rentals and tours, with delivery possible.<br>
+          <a class="ext" href="https://sergioatv.com" target="_blank" rel="noopener">sergioatv.com</a>
+        </li>
+        <li>
+          <strong>Sport fishing</strong> — world-class Sea of Cortez action. Half-day runs roughly $350–$595 USD per boat, shared or private; full days cost more. Operators include Baja’s Awesome Sportfishing, Maria Teresa and the local pangas.<br>
+          <a class="ext" href="https://fishingbooker.com" target="_blank" rel="noopener">fishingbooker.com</a>
+          <a class="ext" href="https://chartermariateresa.com" target="_blank" rel="noopener" style="margin-left:12px">chartermariateresa.com</a>
+        </li>
+        <li>
+          <strong>Cabo Pulmo snorkel or scuba day trip</strong> — the national park reef known as the “Aquarium of the World”. Guided trips from Los Barriles run about 1–1.5 hours by road plus a boat ride, with plenty of marine life and the chance of sea lions. Roughly $150–$400+ USD per person depending on group size and inclusions.<br>
+          <a class="ext" href="https://www.tripadvisor.com" target="_blank" rel="noopener">tripadvisor.com</a>
+        </li>
+        <li>
+          <strong>Horseback riding, kayaking or beach time</strong> — easy options along the shore or at Casa Afortunada.
+        </li>
+        <li>
+          <strong>Relax at the house</strong> — beach time, quad rides, or the pool at the residence.
+        </li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Dinner recommendations</h3>
+      <p class="note">Not included — reserve ahead, especially in season.</p>
+      <ul class="clean rec">
+        <li><strong>La Playa Restaurant &amp; Bar</strong> — beachfront views, great for a sunset dinner. Seafood and Mexican.</li>
+        <li><strong>Taquería El Viejo</strong> — top-rated tacos, with excellent fish and shrimp, and a condiment bar.</li>
+        <li><strong>La Casita</strong> or <strong>Barriles Grill</strong> — solid Mexican, both local favourites.</li>
+        <li><strong>Also worth a look</strong> — Bay View, Campestre Triny, or Smokey’s for a change of pace.</li>
+      </ul>
+      <a class="ext" href="https://www.tripadvisor.com" target="_blank" rel="noopener">Reviews &amp; hours on TripAdvisor</a>
     </div>
     <div class="photo-grid">
       <figure class="shot">
@@ -906,11 +998,18 @@
     </div>
 
     <div class="card">
-      <h3>Important contact</h3>
-      <div class="contact-card">
-        <span>RC Five Star Sedans &amp; Limos</span>
-        <a href="https://wa.me/526242054240">WhatsApp +52 624 205 4240</a>
-        <small>Airport transfers &amp; local rides</small>
+      <h3>Important contacts</h3>
+      <div class="contact-row">
+        <div class="contact-card">
+          <span>RC Five Star Sedans &amp; Limos</span>
+          <a href="https://wa.me/526242054240">WhatsApp +52 624 205 4240</a>
+          <small>Airport transfers &amp; local rides</small>
+        </div>
+        <div class="contact-card">
+          <span>Noe Araiza</span>
+          <a href="https://wa.me/526241609625">WhatsApp +52 624 160 9625</a>
+          <small>Local house manager</small>
+        </div>
       </div>
     </div>
   </section>
