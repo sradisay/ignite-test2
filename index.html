@@ -6,6 +6,8 @@
 <title>Ignite Pickleball — Los Barriles Bootcamp 2026</title>
 <meta name="description" content="Trip guide for the Ignite Pickleball bootcamp in Los Barriles, Baja California Sur — Oct 25–31, 2026. Schedule, logistics, chefs, and who's coming.">
 <meta name="theme-color" content="#093442">
+<link rel="icon" type="image/png" href="public/ignite_logo_full.png">
+<link rel="apple-touch-icon" href="public/ignite_logo_full.png">
 <meta name="color-scheme" content="light">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -103,6 +105,23 @@
     max-width: var(--wrap);
     margin: 0 auto;
   }
+  /* The logo art is white on a knocked-out transparent field, so it sits
+     directly on the dark hero and is darkened for the light footer. */
+  .hero-logo {
+    display: block;
+    width: clamp(158px, 30vw, 232px);
+    height: auto;
+    margin-bottom: 18px;
+  }
+  .footer-logo {
+    display: block;
+    width: clamp(180px, 42vw, 234px);
+    height: auto;
+    margin: 0 auto 14px;
+    filter: brightness(0);
+    opacity: 0.72;
+  }
+
   .kicker {
     display: inline-flex;
     align-items: center;
@@ -432,9 +451,14 @@
   }
   /* Portrait frames whose subject sits high, so a centred crop would cut
      the face off. */
+  .shot.wide {
+    aspect-ratio: 16 / 9;
+    max-height: 340px;
+    grid-column: 1 / -1;
+  }
   .shot img.focus-upper { object-position: center 28%; }
   /* Tall frames whose subject sits low in the frame. */
-  .shot img.focus-lower { object-position: center 64%; }
+  .shot img.focus-lower { object-position: center 62%; }
 
   /* A lone photo shouldn't go full-bleed: these are portrait frames and the
      wide crop would cut the subject out. */
@@ -544,6 +568,9 @@
 
 <header class="hero">
   <div class="hero-inner">
+    <img class="hero-logo" src="public/ignite_logo_full.png" width="620" height="620"
+         fetchpriority="high" decoding="async"
+         alt="Ignite! Pickleball Global Excursions logo: a sugar-skull pickleball with crossbones.">
     <span class="kicker">Ignite Pickleball · World Excursions</span>
     <h1>Los Barriles<br>Bootcamp</h1>
     <p class="sub">October 25–31, 2026</p>
@@ -579,10 +606,12 @@
     <h2 class="section-title">Bienvenidos to <span class="accent">Baja</span></h2>
     <p class="lead">A week of pickleball, Sea of Cortez sunshine, chef-prepared dinners, RZR runs down the beach, and very good company. Everything you need for the week lives right here — tap through the tabs above.</p>
 
-    <div class="slot wide">
-      <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3.2"/><path d="M8 5l1.5-2h5L16 5"/></svg>
-      <span class="cap">Photo 8 — Casa Afortunada from the beach</span>
-    </div>
+    <figure class="shot wide">
+      <img src="public/photo_8_from_the_beach.jpeg" width="720" height="487"
+           loading="lazy" decoding="async"
+           alt="Casa Afortunada lit gold at sunset, seen from the sand across its tiled steps and stone wall.">
+      <figcaption>Casa Afortunada from the beach</figcaption>
+    </figure>
 
     <div class="card">
       <h3>Your hosts</h3>
@@ -615,9 +644,24 @@
       <h3>Your wheels — RZRs</h3>
       <p>Three four-passenger RZR 1000s, provided by Sergio’s ATV, are yours for beach runs, arroyo trails, and getting to and from the courts.</p>
       <div class="photo-grid">
-        <div class="slot"><span class="cap">Photo 12 — Happy riders</span></div>
-        <div class="slot"><span class="cap">Photo 13 — Beach highway</span></div>
-        <div class="slot"><span class="cap">Photo 14 — Beach club, Baja style</span></div>
+        <figure class="shot">
+          <img src="public/photo_12_happy_riders.jpeg" width="4284" height="5712" class="focus-lower"
+               loading="lazy" decoding="async"
+               alt="Four riders cheering beside a RZR on the beach under a Mexican flag.">
+          <figcaption>Happy riders</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="public/photo_13_beach_highway.jpeg" width="4032" height="3024"
+               loading="lazy" decoding="async"
+               alt="A Honda Talon RZR parked on hard-packed sand beside the turquoise Sea of Cortez.">
+          <figcaption>Beach highway</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="public/photo_14_beach_club_baja_style.jpeg" width="7060" height="3798"
+               loading="lazy" decoding="async"
+               alt="A row of RZRs, ATVs and Jeeps parked on the sand beside shaded palapa tables.">
+          <figcaption>Beach club, Baja style</figcaption>
+        </figure>
       </div>
     </div>
 
@@ -683,10 +727,12 @@
     <h2 class="section-title">The Bootcamp</h2>
     <p class="lead">Four intensive mornings and social play every afternoon at one of Baja’s best courts.</p>
 
-    <div class="slot wide">
-      <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3.2"/><path d="M8 5l1.5-2h5L16 5"/></svg>
-      <span class="cap">Photo 6 — Tres Palapas aerial view</span>
-    </div>
+    <figure class="shot wide">
+      <img src="public/photo_6_tres_palapas_aerial.jpeg" width="640" height="480"
+           loading="lazy" decoding="async"
+           alt="Aerial view of the Tres Palapas pickleball courts with players and shaded spectator palapas.">
+      <figcaption>Tres Palapas aerial view</figcaption>
+    </figure>
 
     <div class="card">
       <dl class="kv">
@@ -707,10 +753,42 @@
     <h2 class="section-title">Casa Afortunada</h2>
     <p class="lead">A private beachside home in Los Barriles — ocean views, pool, hot tub, and the sand right out front.</p>
     <div class="photo-grid">
-      <div class="slot"><span class="cap">Photo 8 — From the beach</span></div>
-      <div class="slot"><span class="cap">Photo 9 — Pool</span></div>
-      <div class="slot"><span class="cap">Photo 10 — Hot tub area</span></div>
-      <div class="slot"><span class="cap">Photo 11 — Patio &amp; ocean view</span></div>
+      <figure class="shot">
+        <img src="public/photo_8_from_the_beach.jpeg" width="720" height="487"
+             loading="lazy" decoding="async"
+             alt="Casa Afortunada lit gold at sunset, seen from the sand across its tiled steps and stone wall.">
+        <figcaption>From the beach</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="public/photo_9_pool.jpeg" width="720" height="480"
+             loading="lazy" decoding="async"
+             alt="The free-form pool edged with stacked stone and surrounded by palms.">
+        <figcaption>Pool</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="public/photo_10_hot_tub_area.jpeg" width="960" height="627"
+             loading="lazy" decoding="async"
+             alt="Tiled hot tub set in flagstone in front of the yellow villa and its arched patio.">
+        <figcaption>Hot tub area</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="public/photo_11_patio_ocean_view.jpeg" width="320" height="213"
+             loading="lazy" decoding="async"
+             alt="Cushioned chairs on the patio looking out over the beach and the Sea of Cortez.">
+        <figcaption>Patio &amp; ocean view</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="public/courtyard_daytime.jpeg" width="320" height="213"
+             loading="lazy" decoding="async"
+             alt="The tiled courtyard fountain ringed by palms and bougainvillea in midday sun.">
+        <figcaption>Courtyard by day</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="public/courtyard_sunset.jpeg" width="320" height="214"
+             loading="lazy" decoding="async"
+             alt="The same courtyard fountain silhouetted against a pink and orange Baja sunset.">
+        <figcaption>Courtyard at sunset</figcaption>
+      </figure>
     </div>
   </section>
 
@@ -728,13 +806,13 @@
       <p class="muted">Green chicken enchiladas · chiles rellenos · chicken tacos · rice · beans · guacamole · pico de gallo · tortilla chips.</p>
       <div class="photo-grid">
         <figure class="shot">
-          <img src="public/cook_crew_2.jpeg" width="4000" height="3000"
+          <img src="public/chef_lupi_crew.jpeg" width="4000" height="3000"
                loading="lazy" decoding="async"
                alt="Chef Lupi and two of her crew in the Casa Afortunada kitchen behind three chafing dishes.">
           <figcaption>Chef Lupi &amp; crew</figcaption>
         </figure>
         <figure class="shot">
-          <img src="public/catering.jpeg" width="3096" height="4128" class="focus-lower"
+          <img src="public/the_spread.jpeg" width="3096" height="4128" class="focus-lower"
                loading="lazy" decoding="async"
                alt="Buffet table of salsas, guacamole, pico de gallo, limes and slaw as guests serve themselves.">
           <figcaption>The spread</figcaption>
@@ -747,9 +825,9 @@
       <p class="muted">Mexican style, provided at Tres Palapas after the morning session.</p>
       <div class="photo-grid">
         <figure class="shot">
-          <img src="public/tacos.jpeg" width="1280" height="1599"
+          <img src="public/tres_tacos.jpeg" width="430" height="465"
                loading="lazy" decoding="async"
-               alt="A plated fried fish taco on a corn tortilla topped with slaw, pico de gallo and arugula.">
+               alt="Three tacos on blue and yellow corn tortillas with slaw and radish on a painted clay plate.">
           <figcaption>Tres tacos</figcaption>
         </figure>
       </div>
@@ -765,18 +843,23 @@
       <p class="muted">A five-course evening: appetizers, salad, Sonoran-style beef <em>or</em> catch of the day, sides, and dessert. Pepon plays classic rock, reggae, blues, and 80s-to-now.</p>
       <div class="photo-grid">
         <figure class="shot">
-          <img src="public/cook_crew_1.jpeg" width="1599" height="1200"
+          <img src="public/chef_rogelio_crew.jpeg" width="1599" height="1200"
                loading="lazy" decoding="async"
                alt="Chef Rogelio Granado and three of his crew in chef whites on the villa patio.">
           <figcaption>Chef Rogelio &amp; crew</figcaption>
         </figure>
         <figure class="shot">
-          <img src="public/live_music.jpeg" width="723" height="966" class="focus-upper"
+          <img src="public/pepon_live.jpeg" width="723" height="966" class="focus-upper"
                loading="lazy" decoding="async"
                alt="Pepon singing and playing guitar behind a keyboard rig under stage lights.">
           <figcaption>Pepon, live</figcaption>
         </figure>
-        <div class="slot"><span class="cap">Photo 4 — Plated creation</span></div>
+        <figure class="shot">
+          <img src="public/photo_4_plated_creation.jpeg" width="1280" height="1599"
+               loading="lazy" decoding="async"
+               alt="A plated fried fish taco topped with slaw, pico de gallo and arugula on a blue ceramic plate.">
+          <figcaption>Plated creation</figcaption>
+        </figure>
       </div>
     </div>
   </section>
@@ -795,8 +878,18 @@
       </ul>
     </div>
     <div class="photo-grid">
-      <div class="slot"><span class="cap">Photo 13 — RZR on the beach</span></div>
-      <div class="slot"><span class="cap">Photo 14 — Beach club scene</span></div>
+      <figure class="shot">
+        <img src="public/photo_13_beach_highway.jpeg" width="4032" height="3024"
+             loading="lazy" decoding="async"
+             alt="A Honda Talon RZR parked on hard-packed sand beside the turquoise Sea of Cortez.">
+        <figcaption>RZR on the beach</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="public/photo_14_beach_club_baja_style.jpeg" width="7060" height="3798"
+             loading="lazy" decoding="async"
+             alt="A row of RZRs, ATVs and Jeeps parked on the sand beside shaded palapa tables.">
+        <figcaption>Beach club scene</figcaption>
+      </figure>
     </div>
   </section>
 
@@ -825,6 +918,8 @@
 </div>
 
 <footer>
+  <img class="footer-logo" src="public/ignite_logo_text_only.png" width="900" height="194"
+       loading="lazy" decoding="async" alt="">
   <span class="mark">Ignite Pickleball</span> · World Excursions — Los Barriles 2026
 </footer>
 
