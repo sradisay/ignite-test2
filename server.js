@@ -25,6 +25,14 @@ const COOKIE_SECURE = (process.env.COOKIE_SECURE || 'auto').toLowerCase();
 const MAX_ATTEMPTS = Number(process.env.MAX_ATTEMPTS || 8);
 const LOCKOUT_MINUTES = Number(process.env.LOCKOUT_MINUTES || 15);
 
+// Extra hostnames allowed to submit the login form, for deployments where the
+// proxy rewrites Host to something the browser never sees. Comma separated;
+// scheme optional (both "trip.example.com" and "https://trip.example.com" work).
+const ALLOWED_ORIGINS = (process.env.ALLOWED_ORIGINS || '')
+  .split(',')
+  .map((v) => v.trim().toLowerCase().replace(/^https?:\/\//, '').replace(/\/$/, ''))
+  .filter(Boolean);
+
 if (!PASSCODE || !PASSCODE.trim()) {
   console.error('FATAL: SITE_PASSCODE is not set. Refusing to start an unprotected site.');
   process.exit(1);
