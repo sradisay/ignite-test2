@@ -402,6 +402,43 @@
     padding: 14px;
   }
   .slot svg { opacity: 0.55; }
+
+  .shot {
+    position: relative;
+    margin: 0;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    max-height: 260px;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    overflow: hidden;
+    background: var(--sand-deep);
+  }
+  .shot img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .shot figcaption {
+    position: absolute;
+    inset: auto 0 0 0;
+    padding: 26px 14px 11px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #fff;
+    background: linear-gradient(transparent, rgba(6, 35, 46, 0.55) 45%, rgba(6, 35, 46, 0.86));
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.45);
+  }
+  /* Portrait frames whose subject sits high, so a centred crop would cut
+     the face off. */
+  .shot img.focus-upper { object-position: center 28%; }
+  /* Tall frames whose subject sits low in the frame. */
+  .shot img.focus-lower { object-position: center 64%; }
+
+  /* A lone photo shouldn't go full-bleed: these are portrait frames and the
+     wide crop would cut the subject out. */
+  .photo-grid > .shot:only-child { max-width: 430px; margin-inline: auto; }
   .slot .cap { font-weight: 600; font-size: 0.9rem; }
   .slot.wide {
     aspect-ratio: 16 / 9;
@@ -690,8 +727,18 @@
       </div>
       <p class="muted">Green chicken enchiladas · chiles rellenos · chicken tacos · rice · beans · guacamole · pico de gallo · tortilla chips.</p>
       <div class="photo-grid">
-        <div class="slot"><span class="cap">Photo 1 — Chef Lupi &amp; crew</span></div>
-        <div class="slot"><span class="cap">Photo 2 — The spread</span></div>
+        <figure class="shot">
+          <img src="public/cook_crew_2.jpeg" width="4000" height="3000"
+               loading="lazy" decoding="async"
+               alt="Chef Lupi and two of her crew in the Casa Afortunada kitchen behind three chafing dishes.">
+          <figcaption>Chef Lupi &amp; crew</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="public/catering.jpeg" width="3096" height="4128" class="focus-lower"
+               loading="lazy" decoding="async"
+               alt="Buffet table of salsas, guacamole, pico de gallo, limes and slaw as guests serve themselves.">
+          <figcaption>The spread</figcaption>
+        </figure>
       </div>
     </div>
 
@@ -699,7 +746,12 @@
       <h3>Daily Brunch — bootcamp days</h3>
       <p class="muted">Mexican style, provided at Tres Palapas after the morning session.</p>
       <div class="photo-grid">
-        <div class="slot"><span class="cap">Photo 7 — Tres tacos</span></div>
+        <figure class="shot">
+          <img src="public/tacos.jpeg" width="1280" height="1599"
+               loading="lazy" decoding="async"
+               alt="A plated fried fish taco on a corn tortilla topped with slaw, pico de gallo and arugula.">
+          <figcaption>Tres tacos</figcaption>
+        </figure>
       </div>
     </div>
 
@@ -712,9 +764,19 @@
       </div>
       <p class="muted">A five-course evening: appetizers, salad, Sonoran-style beef <em>or</em> catch of the day, sides, and dessert. Pepon plays classic rock, reggae, blues, and 80s-to-now.</p>
       <div class="photo-grid">
-        <div class="slot"><span class="cap">Photo 3 — Chef Rogelio &amp; crew</span></div>
+        <figure class="shot">
+          <img src="public/cook_crew_1.jpeg" width="1599" height="1200"
+               loading="lazy" decoding="async"
+               alt="Chef Rogelio Granado and three of his crew in chef whites on the villa patio.">
+          <figcaption>Chef Rogelio &amp; crew</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="public/live_music.jpeg" width="723" height="966" class="focus-upper"
+               loading="lazy" decoding="async"
+               alt="Pepon singing and playing guitar behind a keyboard rig under stage lights.">
+          <figcaption>Pepon, live</figcaption>
+        </figure>
         <div class="slot"><span class="cap">Photo 4 — Plated creation</span></div>
-        <div class="slot"><span class="cap">Photo 5 — Pepon, live</span></div>
       </div>
     </div>
   </section>
