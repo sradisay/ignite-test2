@@ -476,6 +476,27 @@
     background: var(--sand-deep); color: var(--sea-800);
   }
 
+  .attire {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 4px 10px;
+    margin-top: 14px;
+    padding: 11px 14px;
+    border-radius: 12px;
+    background: rgba(245, 160, 30, 0.16);
+    border: 1px solid rgba(245, 160, 30, 0.55);
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .attire b {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--marigold-deep);
+  }
+
   /* ---------- GUESTS ---------- */
   .people { display: flex; flex-wrap: wrap; gap: 10px; }
   .chip {
@@ -637,6 +658,11 @@
       <h3>Your hosts</h3>
       <p><strong>Nicolas &amp; Jenny Radisay</strong> — Ignite Pickleball</p>
       <p class="muted">Nicolas is also coaching bootcamp alongside “Baja” Joe. Find them for anything you need during the week.</p>
+      <div class="contact-card">
+        <span>Nicolas Radisay</span>
+        <a href="tel:+19493380792">949 338 0792</a>
+        <small>Your host — call any time during the week</small>
+      </div>
     </div>
 
     <div class="card">
@@ -706,9 +732,9 @@
           <small>Airport transfers &amp; local rides</small>
         </div>
         <div class="contact-card">
-          <span>Nicolas &amp; Jenny Radisay</span>
-          <a href="#guests" onclick="openTab('guests'); return false;">Your hosts</a>
-          <small>Find them for anything you need</small>
+          <span>Nicolas Radisay</span>
+          <a href="tel:+19493380792">949 338 0792</a>
+          <small>Your host — Nicolas &amp; Jenny Radisay</small>
         </div>
       </div>
     </div>
@@ -842,9 +868,9 @@
       <h3>Welcome Dinner — Sun, Oct 25 · 6:00 PM</h3>
       <div class="badge-row">
         <span class="badge">Chef Lupi</span>
-        <span class="badge">Baja casual</span>
       </div>
       <p class="muted">Green chicken enchiladas · chiles rellenos · chicken tacos · rice · beans · guacamole · pico de gallo · tortilla chips.</p>
+      <p class="attire"><b>Attire</b> <span>Baja casual</span></p>
       <div class="photo-grid">
         <figure class="shot">
           <img src="public/chef_lupi_crew.jpeg" width="4000" height="3000"
@@ -878,10 +904,10 @@
       <h3>Día de los Muertos Dinner — Fri, Oct 30 · 6:00 PM</h3>
       <div class="badge-row">
         <span class="badge">Chef Rogelio Granado — local legend</span>
-        <span class="badge">Día de los Muertos attire</span>
         <span class="badge">Live music: Pepon Music</span>
       </div>
       <p class="muted">A five-course evening: appetizers, salad, Sonoran-style beef <em>or</em> catch of the day, sides, and dessert. Pepon plays classic rock, reggae, blues, and 80s-to-now.</p>
+      <p class="attire"><b>Attire</b> <span>Día de los Muertos theme — bring something festive</span></p>
       <div class="photo-grid">
         <figure class="shot">
           <img src="public/chef_rogelio_crew.jpeg" width="1599" height="1200"
@@ -988,7 +1014,7 @@
   <!-- CREW -->
   <section id="guests" class="panel" role="tabpanel" aria-labelledby="tab-guests" tabindex="0">
     <h2 class="section-title">The Crew &amp; Contacts</h2>
-    <p class="lead">Everyone joining the week, plus the number to keep handy.</p>
+    <p class="lead">Everyone joining the week, plus the numbers to keep handy.</p>
 
     <div class="card">
       <h3>Hosts</h3>
@@ -1006,9 +1032,14 @@
           <small>Airport transfers &amp; local rides</small>
         </div>
         <div class="contact-card">
+          <span>Nicolas Radisay</span>
+          <a href="tel:+19493380792">949 338 0792</a>
+          <small>Your host — Nicolas &amp; Jenny Radisay</small>
+        </div>
+        <div class="contact-card">
           <span>Noe Araiza</span>
           <a href="https://wa.me/526241609625">WhatsApp +52 624 160 9625</a>
-          <small>Local house manager</small>
+          <small>Casa Afortunada manager</small>
         </div>
       </div>
     </div>
