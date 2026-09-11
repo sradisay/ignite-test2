@@ -36,6 +36,23 @@ Then open http://localhost:8080 and enter the code.
 | `COOKIE_SECURE` | no | `auto` | `auto` sets the `Secure` flag when `X-Forwarded-Proto: https`. Force with `true`/`false`. |
 | `MAX_ATTEMPTS` | no | `8` | Failed attempts from one IP before lockout. |
 | `LOCKOUT_MINUTES` | no | `15` | How long that lockout lasts. |
+| `ALLOWED_ORIGINS` | no | — | Extra hostnames allowed to submit the login form, comma separated. Only needed if your proxy rewrites `Host` to a name the browser never sees. |
+
+### "That request came from an unexpected address"
+
+The login form checks that the POST came from this site. It compares **hosts,
+not schemes**, so terminating TLS at a proxy is fine on its own.
+
+If you do see that message, the server logs the exact mismatch and the value to
+set, for example:
+
+```
+Blocked login POST: Origin host "guide.mytrip.com" matched none of
+[internal:9000]. If that origin is legitimate, set ALLOWED_ORIGINS="guide.mytrip.com".
+```
+
+Set `ALLOWED_ORIGINS` to that host and restart. Forwarding `X-Forwarded-Host`
+from your proxy fixes it too, and is the tidier option.
 
 ## What the gate actually protects
 

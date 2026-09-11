@@ -3,3 +3,8 @@
 .env
 *.md
 node_modules
+
+# Source artwork for the logo. The served versions are the transparent PNGs
+# generated from these, so the originals stay in the repo but not in the image.
+public/ignite_logo_full.jpeg
+public/ignite_logo_text_only.jpeg
