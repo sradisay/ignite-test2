@@ -363,6 +363,48 @@ function readBody(req, limitBytes, cb) {
   req.on('error', () => { if (!done) { done = true; cb(new Error('read error')); } });
 }
 
+/**
+ * Is this login POST coming from our own page?
+ *
+ * Compared by host only, never by scheme: TLS is normally terminated at a
+ * proxy, so the browser sends "https://..." while this process only ever sees
+ * plain HTTP. Comparing full origins rejected every HTTPS deployment.
+ */
+function originAllowed(req) {
+  const origin = req.headers.origin;
+  if (!origin) return true; // curl and other non-browser clients send none
+
+  // Sandboxed iframes and file:// pages send a literal "null". A shared
+  // passcode makes login-CSRF harmless here, so allow it but say so.
+  if (origin === 'null') {
+    console.warn('Login POST carried Origin: null; allowing.');
+    return true;
+  }
+
+  let host;
+  try {
+    host = new URL(origin).host.toLowerCase();
+  } catch {
+    return false;
+  }
+
+  const expected = [];
+  const fwdHost = req.headers['x-forwarded-host'];
+  if (fwdHost) expected.push(String(fwdHost).split(',')[0].trim().toLowerCase());
+  if (req.headers.host) expected.push(String(req.headers.host).trim().toLowerCase());
+  expected.push(...ALLOWED_ORIGINS);
+
+  if (expected.includes(host)) return true;
+
+  // Say exactly what mismatched, so this is diagnosable instead of a mystery.
+  console.warn(
+    'Blocked login POST: Origin host "' + host + '" matched none of [' +
+    expected.join(', ') + ']. If that origin is legitimate, set ' +
+    'ALLOWED_ORIGINS="' + host + '".'
+  );
+  return false;
+}
+
 // Accept only same-site local paths as a post-login destination.
 function safeNext(value) {
   if (!value) return '/';
@@ -395,9 +437,10 @@ const server = http.createServer((req, res) => {
     }
 
     // Reject cross-site form posts.
-    const origin = req.headers.origin;
-    if (origin && origin !== url.origin) {
-      return sendHtml(res, 403, loginPage({ error: 'Request blocked. Please try again from this page.' }));
+    if (!originAllowed(req)) {
+      return sendHtml(res, 403, loginPage({
+        error: 'That request came from an unexpected address. Open the site directly and try again.',
+      }));
     }
 
     return readBody(req, 2048, (err, body) => {
