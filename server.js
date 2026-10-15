@@ -64,6 +64,9 @@ const MIME = {
   '.webp': 'image/webp',
   '.svg': 'image/svg+xml',
   '.ico': 'image/x-icon',
+  // Served with its real type so phones hand the trip calendar to the
+  // calendar app instead of downloading an opaque file.
+  '.ics': 'text/calendar; charset=utf-8',
 };
 
 // ---------------------------------------------------------------- session ---

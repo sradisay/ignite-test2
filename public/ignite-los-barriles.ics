@@ -1,0 +1,270 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ignite Pickleball//Los Barriles Bootcamp 2026//EN
+CALSCALE:GREGORIAN
+X-WR-CALNAME:Los Barriles Bootcamp 2026
+X-WR-CALDESC:Ignite Pickleball bootcamp — Los Barriles\, Oct 25–31\, 20
+ 26
+X-WR-TIMEZONE:America/Mazatlan
+BEGIN:VTIMEZONE
+TZID:America/Mazatlan
+BEGIN:STANDARD
+DTSTART:20221030T010000
+TZOFFSETFROM:-0700
+TZOFFSETTO:-0700
+TZNAME:MST
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:arrival@losbarriles2026.ignitepickleball
+DTSTAMP:20261014T000000Z
+SEQUENCE:0
+DTSTART;VALUE=DATE:20261025
+DTEND;VALUE=DATE:20261026
+SUMMARY:✈️ Arrival day — SJD → Casa Afortunada
+LOCATION:Los Cabos International Airport (SJD)\, San José del Cabo\, Mexic
+ o
+DESCRIPTION:Fly into Los Cabos (SJD)\, then a private Sprinter van transfer
+  to the house.\n\nMost guests: Southwest WN630\, SNA → SJD.\nRyan: Ameri
+ can AA2547\, DFW → SJD.\n\nTransfer: RC Five Star Sedans & Limos\, Whats
+ App +52 624 205 4240.\nHost: Nicolas Radisay\, 949 338 0792.\n\nBring your
+  passport and have pesos for tips.
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT15H
+DESCRIPTION:✈️ Arrival day — SJD → Casa Afortunada
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:welcome-dinner@losbarriles2026.ignitepickleball
+DTSTAMP:20261014T000000Z
+SEQUENCE:0
+DTSTART;TZID=America/Mazatlan:20261025T180000
+DTEND;TZID=America/Mazatlan:20261025T210000
+SUMMARY:🌮 Welcome Dinner — Chef Lupi
+LOCATION:Casa Afortunada\, Los Barriles\, Baja California Sur\, Mexico
+DESCRIPTION:Chef Lupi opens the week at the house.\n\nGreen chicken enchila
+ das\, chiles rellenos\, chicken tacos\, rice\, beans\,\nguacamole\, pico d
+ e gallo and tortilla chips.\n\nAttire: Baja casual.
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT1H
+DESCRIPTION:🌮 Welcome Dinner — Chef Lupi
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:🌮 Welcome Dinner — Chef Lupi
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:bootcamp-1@losbarriles2026.ignitepickleball
+DTSTAMP:20261014T000000Z
+SEQUENCE:0
+DTSTART;TZID=America/Mazatlan:20261026T080000
+DTEND;TZID=America/Mazatlan:20261026T110000
+SUMMARY:🥒 Bootcamp Day 1 — Tres Palapas
+LOCATION:Tres Palapas Baja Pickleball Resort\, Los Barriles\, BCS\, Mexico
+DESCRIPTION:Intensive morning session with coaches Nic and "Baja" Joe\, 8:0
+ 0–11:00 AM.\n\nHosted Mexican brunch at Tres Palapas right afterwards at
+  11:00.\n\nBring: paddle\, court shoes\, hat\, sunglasses\, electrolytes\,
+  and more water\nthan you think you need.
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT45M
+DESCRIPTION:🥒 Bootcamp Day 1 — Tres Palapas
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:social-play-1@losbarriles2026.ignitepickleball
+DTSTAMP:20261014T000000Z
+SEQUENCE:0
+DTSTART;TZID=America/Mazatlan:20261026T170000
+DTEND;TZID=America/Mazatlan:20261026T190000
+SUMMARY:🥒 Social play — Tres Palapas
+LOCATION:Tres Palapas Baja Pickleball Resort\, Los Barriles\, BCS\, Mexico
+DESCRIPTION:Open social play\, 5:00–7:00 PM. Optional but very much the f
+ un part.\n\nDinner afterwards is on your own — see the trip guide for re
+ commendations.
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT30M
+DESCRIPTION:🥒 Social play — Tres Palapas
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:bootcamp-2@losbarriles2026.ignitepickleball
+DTSTAMP:20261014T000000Z
+SEQUENCE:0
+DTSTART;TZID=America/Mazatlan:20261027T080000
+DTEND;TZID=America/Mazatlan:20261027T110000
+SUMMARY:🥒 Bootcamp Day 2 — Tres Palapas
+LOCATION:Tres Palapas Baja Pickleball Resort\, Los Barriles\, BCS\, Mexico
+DESCRIPTION:Intensive morning session with coaches Nic and "Baja" Joe\, 8:0
+ 0–11:00 AM.\n\nHosted Mexican brunch at Tres Palapas right afterwards at
+  11:00.\n\nBring: paddle\, court shoes\, hat\, sunglasses\, electrolytes\,
+  and more water\nthan you think you need.
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT45M
+DESCRIPTION:🥒 Bootcamp Day 2 — Tres Palapas
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:social-play-2@losbarriles2026.ignitepickleball
+DTSTAMP:20261014T000000Z
+SEQUENCE:0
+DTSTART;TZID=America/Mazatlan:20261027T170000
+DTEND;TZID=America/Mazatlan:20261027T190000
+SUMMARY:🥒 Social play — Tres Palapas
+LOCATION:Tres Palapas Baja Pickleball Resort\, Los Barriles\, BCS\, Mexico
+DESCRIPTION:Open social play\, 5:00–7:00 PM. Optional but very much the f
+ un part.\n\nDinner afterwards is on your own — see the trip guide for re
+ commendations.
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT30M
+DESCRIPTION:🥒 Social play — Tres Palapas
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:free-day@losbarriles2026.ignitepickleball
+DTSTAMP:20261014T000000Z
+SEQUENCE:0
+DTSTART;VALUE=DATE:20261028
+DTEND;VALUE=DATE:20261029
+SUMMARY:🏖️ Free day — optional excursions
+LOCATION:Los Barriles\, Baja California Sur\, Mexico
+DESCRIPTION:No meals or activities included — the flex day of the week.\n
+ \nIdeas: sport fishing\, a Cabo Pulmo snorkel trip\, RZR runs up the arroy
+ os\,\nextra pickleball at Palmas Pickleball Resort\, or nothing at all by 
+ the pool.\n\nDinner is on your own. Book excursions ahead — ask your hos
+ ts for help.
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT15H
+DESCRIPTION:🏖️ Free day — optional excursions
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:bootcamp-3@losbarriles2026.ignitepickleball
+DTSTAMP:20261014T000000Z
+SEQUENCE:0
+DTSTART;TZID=America/Mazatlan:20261029T080000
+DTEND;TZID=America/Mazatlan:20261029T110000
+SUMMARY:🥒 Bootcamp Day 3 — Tres Palapas
+LOCATION:Tres Palapas Baja Pickleball Resort\, Los Barriles\, BCS\, Mexico
+DESCRIPTION:Intensive morning session with coaches Nic and "Baja" Joe\, 8:0
+ 0–11:00 AM.\n\nHosted Mexican brunch at Tres Palapas right afterwards at
+  11:00.\n\nBring: paddle\, court shoes\, hat\, sunglasses\, electrolytes\,
+  and more water\nthan you think you need.
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT45M
+DESCRIPTION:🥒 Bootcamp Day 3 — Tres Palapas
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:social-play-3@losbarriles2026.ignitepickleball
+DTSTAMP:20261014T000000Z
+SEQUENCE:0
+DTSTART;TZID=America/Mazatlan:20261029T170000
+DTEND;TZID=America/Mazatlan:20261029T190000
+SUMMARY:🥒 Social play — Tres Palapas
+LOCATION:Tres Palapas Baja Pickleball Resort\, Los Barriles\, BCS\, Mexico
+DESCRIPTION:Open social play\, 5:00–7:00 PM. Optional but very much the f
+ un part.\n\nDinner afterwards is on your own — see the trip guide for re
+ commendations.
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT30M
+DESCRIPTION:🥒 Social play — Tres Palapas
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:bootcamp-4@losbarriles2026.ignitepickleball
+DTSTAMP:20261014T000000Z
+SEQUENCE:0
+DTSTART;TZID=America/Mazatlan:20261030T080000
+DTEND;TZID=America/Mazatlan:20261030T110000
+SUMMARY:🥒 Bootcamp Day 4 — Tres Palapas
+LOCATION:Tres Palapas Baja Pickleball Resort\, Los Barriles\, BCS\, Mexico
+DESCRIPTION:Final morning session with Nic and "Baja" Joe\, 8:00–11:00 AM
+ .\n\nHosted Mexican brunch at Tres Palapas right after\, then afternoon so
+ cial\nplay before the fiesta.\n\nBring: paddle\, court shoes\, hat\, sungl
+ asses\, electrolytes\, and more water\nthan you think you need.
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT45M
+DESCRIPTION:🥒 Bootcamp Day 4 — Tres Palapas
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:dia-de-los-muertos-dinner@losbarriles2026.ignitepickleball
+DTSTAMP:20261014T000000Z
+SEQUENCE:0
+DTSTART;TZID=America/Mazatlan:20261030T180000
+DTEND;TZID=America/Mazatlan:20261030T220000
+SUMMARY:💀 Día de los Muertos Dinner — Chef Rogelio + Pepon live
+LOCATION:Casa Afortunada\, Los Barriles\, Baja California Sur\, Mexico
+DESCRIPTION:The big one. Five courses from Chef Rogelio Granado — appetiz
+ ers\, salad\,\nSonoran-style beef or catch of the day\, sides and dessert 
+ — with live music\nfrom Pepon: classic rock\, reggae\, blues\, and 80s t
+ o now.\n\nAttire: Día de los Muertos theme. Bring something festive — f
+ ace paint\,\na floral crown\, marigold colours\, an embroidered shirt.
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT1H
+DESCRIPTION:💀 Día de los Muertos Dinner — Chef Rogelio + Pepon live
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:💀 Día de los Muertos Dinner — Chef Rogelio + Pepon live
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:departure@losbarriles2026.ignitepickleball
+DTSTAMP:20261014T000000Z
+SEQUENCE:0
+DTSTART;VALUE=DATE:20261031
+DTEND;VALUE=DATE:20261101
+SUMMARY:✈️ Departure — Casa Afortunada → SJD
+LOCATION:Los Cabos International Airport (SJD)\, San José del Cabo\, Mexic
+ o
+DESCRIPTION:Morning leisure\, then the Sprinter van transfer back to SJD.\n
+ \nMain group: Southwest WN631\, SJD → SNA.\nRyan: American AA1385\, SJD 
+ → DFW.\nBrian & Shelly continue on to Cabo San Lucas.\n\nAllow plenty of
+  time: SJD is about an hour from the house and the\ninternational terminal
+  gets busy.
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT15H
+DESCRIPTION:✈️ Departure — Casa Afortunada → SJD
+END:VALARM
+END:VEVENT
+END:VCALENDAR

@@ -25,6 +25,49 @@ SITE_PASSCODE='pick-your-code-here' SESSION_SECRET='any-long-random-string' node
 
 Then open http://localhost:8080 and enter the code.
 
+## The trip calendar
+
+`public/ignite-los-barriles.ics` is the shareable calendar guests add to their
+own phone, so their calendar app handles the reminders instead of the page.
+
+It is generated, not hand-edited. After any itinerary change:
+
+```bash
+node make-ics.js
+```
+
+`make-ics.js` holds the events as data and takes care of the fiddly parts of
+RFC 5545: CRLF endings, folding lines to 75 **octets** (the file is full of
+multi-byte emoji and accented Spanish), escaping, and a `VTIMEZONE` for
+`America/Mazatlan` — Baja California Sur is on permanent UTC-7, with no
+daylight saving since 2022.
+
+Two things to know when editing it:
+
+- **Bump `SEQUENCE`** if guests have already imported the file and an event's
+  time or details change. Without it, calendar apps keep the stale copy.
+- **Never change a `UID`.** The UID is how a re-import updates an existing
+  entry instead of creating a duplicate beside it.
+
+The server sends the file as `text/calendar`, which is what makes a phone hand
+it to the calendar app rather than downloading an opaque attachment. Like
+everything else under `public/`, it sits behind the passcode.
+
+## The weather forecast
+
+The Weather & Packing tab pulls a live daily forecast from Open-Meteo
+(no API key, no account) in the browser, client side.
+
+The forecast window is 16 days, so the last days of the trip have no real
+forecast until part way through October. Those days render late-October
+climate normals for Los Barriles instead, visibly marked as averages rather
+than quietly passed off as a forecast. The same fallback covers a failed or
+blocked request, so the section is useful offline and never renders empty.
+
+If you ever add a Content-Security-Policy to the server, it needs
+`connect-src https://api.open-meteo.com` or the forecast silently falls back
+to the averages.
+
 ## Environment variables
 
 | Variable | Required | Default | What it does |
@@ -63,6 +106,10 @@ reveal the itinerary, flight numbers, or contact details.
 
 The one exception is `public/ignite_logo_full.png`, which the login screen
 itself displays.
+
+That includes the trip calendar: `ignite-los-barriles.ics` is served only to
+an authenticated guest, so the itinerary is not public just because it is a
+calendar file.
 
 ### Security properties
 
